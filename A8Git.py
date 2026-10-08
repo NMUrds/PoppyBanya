@@ -1,4 +1,3 @@
-
 poppybanya_text = "My Poppybanya. Nice Poppybanya. A happy Poppybanya! Indeed."
 substring = "Poppybanya"
 
