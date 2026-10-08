@@ -1,0 +1,52 @@
+poppybanya_text = "My Poppybanya. Nice Poppybanya. A happy Poppybanya! Indeed."
+substring = "Poppybanya"
+
+print("=" * 60)
+print("Original text:")
+print(poppybanya_text)
+print("=" * 60)
+
+
+print("\n[1] find() with different start/end parameters:")
+print("find('Poppybanya', 0, 10):  ", poppybanya_text.find(substring, 0, 10))   # 3
+print("find('Poppybanya', 0, 5):   ", poppybanya_text.find(substring, 0, 5))    # -1 (cut off)
+print("find('Poppybanya', 10, 30): ", poppybanya_text.find(substring, 10, 30))  # 19
+print("find('Poppybanya', 20, 45): ", poppybanya_text.find(substring, 20, 45))  # 38
+print("find('Poppybanya', 40, 60): ", poppybanya_text.find(substring, 40, 60))  # -1
+
+
+print("\n[2] rfind() — last occurrence:")
+print("rfind('Poppybanya'):        ", poppybanya_text.rfind(substring))         # 38
+print("rfind('Poppybanya', 0, 30): ", poppybanya_text.rfind(substring, 0, 30))  # 19
+
+
+print("\n[3] ALL occurrences of the substring:")
+positions = []
+start = 0
+while True:
+    pos = poppybanya_text.find(substring, start)
+    if pos == -1:
+        break
+    positions.append(pos)
+    start = pos + 1
+
+print("Positions:", positions)
+print("Total found:", len(positions))
+
+
+print("\n[4] Slices of the original text:")
+print("text[:11]:     ", poppybanya_text[:11])       # "My Poppyban"
+print("text[3:13]:    ", poppybanya_text[3:13])      # "Poppybanya"
+print("text[3:13:2]:  ", poppybanya_text[3:13:2])    # every 2nd char
+print("text[::-1]:    ", poppybanya_text[::-1])      # reversed
+print("text[15:]:     ", poppybanya_text[15:])       # after first "Poppybanya"
+
+
+print("\n[5] Extract each 'Poppybanya' via slicing:")
+for i, pos in enumerate(positions, start=1):
+    piece = poppybanya_text[pos:pos + len(substring)]
+    print(f"  Occurrence #{i}: '{piece}' at index {pos}")
+
+print("\n" + "=" * 60)
+print("Done.")
+print("=" * 60)
